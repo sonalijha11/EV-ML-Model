@@ -6,8 +6,8 @@ The model is deployed using Streamlit for easy user interaction.
 
 # Learning Type
 Type	Description
-Supervised Learning ✅	Labeled dataset with target (EV efficiency)
-Regression ✅	Predicts numerical output
+Supervised Learning [Labeled dataset with target (EV efficiency)]
+Regression [Predicts numerical output]
 
 # Technologies Used
 
