@@ -12,7 +12,10 @@ model = pk.load(open(model_path, "rb"))
 
 st.header('Car Efficiency Prediction ML Model')
 
-cars_data = pd.read_csv('electric_vehicles_spec_2025.csv.csv')
+#cars_data = pd.read_csv('electric_vehicles_spec_2025.csv.csv')
+csv_path = os.path.join(os.path.dirname(__file__), "electric_vehicles_spec_2025.csv.csv")
+cars_data = pd.read_csv(csv_path)
+
 
 brand= cars_data['brand'].unique()
 
@@ -57,3 +60,4 @@ if st.button("Predict"):
     car_efficiency = model.predict(input_data_model)
 
     st.markdown('The efficiency of the Car is: '+str(car_efficiency[0]))
+
