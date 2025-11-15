@@ -3,7 +3,11 @@ import numpy as np
 import pickle as pk
 import streamlit as st
 
-model = pk.load(open('model.pkl','rb'))
+#model = pk.load(open('model.pkl','rb'))
+import os
+model_path = os.path.join(os.path.dirname(__file__), "model.pkl")
+model = pk.load(open(model_path, "rb"))
+
 
 
 st.header('Car Efficiency Prediction ML Model')
@@ -51,4 +55,5 @@ if st.button("Predict"):
     ])
 
     car_efficiency = model.predict(input_data_model)
+
     st.markdown('The efficiency of the Car is: '+str(car_efficiency[0]))
