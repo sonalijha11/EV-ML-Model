@@ -2,7 +2,7 @@ import streamlit as st
 
 st.set_page_config(page_title="About EV Prediction App", layout="centered")
 
-# Title
+
 st.markdown("<h2 style='text-align:center;'>About This Project</h2>", unsafe_allow_html=True)
 
 st.write("")
@@ -21,7 +21,7 @@ The goal of this project is to:
 
 st.write("---")
 
-# How the model works
+
 st.markdown("### 🔧 How the Model Works")
 st.write(
     """
@@ -34,7 +34,7 @@ st.write(
 
 st.write("---")
 
-# Why EV Range is important
+
 st.markdown("### ⚡ Why EV Range Prediction Matters")
 st.write(
     """
@@ -48,7 +48,7 @@ Predicting EV range helps users understand:
 
 st.write("---")
 
-# Dataset Information
+
 st.markdown("### 📊 Dataset Information")
 st.write(
     """
@@ -61,7 +61,7 @@ The dataset includes:
 
 st.write("---")
 
-# Credits
+
 st.markdown("### 👩‍💻 Developer")
 st.write(
     """
@@ -76,3 +76,4 @@ st.markdown(
     "<p style='text-align:center; font-size:14px; color:gray;'>Thank you for using the EV Prediction App ⚡</p>",
     unsafe_allow_html=True
 )
+
