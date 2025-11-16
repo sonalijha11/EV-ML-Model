@@ -6,11 +6,10 @@ import plotly.express as px
 
 st.set_page_config(page_title="EV Range Prediction", layout="centered")
 
-# Load dataset, model, scaler
 
 import os
 
-BASE_DIR = os.path.dirname(os.path.dirname(__file__))   # go to Final_Project
+BASE_DIR = os.path.dirname(os.path.dirname(__file__))   
 csv_path = os.path.join(BASE_DIR, "electric_vehicles_spec.csv")
 data = pd.read_csv(csv_path)
 
@@ -24,12 +23,11 @@ scaler = pickle.load(open(scaler_path, "rb"))
 st.markdown("<h2 style='text-align:center;'>EV Range Prediction</h2>", unsafe_allow_html=True)
 st.write("### Please input details of your EV:")
 
-# Convert to string for dropdowns
 data["brand"] = data["brand"].astype(str)
 data["model"] = data["model"].astype(str)
 data["battery_type"] = data["battery_type"].astype(str)
 
-# --------------------------- DROPDOWNS ---------------------------
+# drpdowns
 st.markdown("**Brand (Encoded number) — Allowed: 0 to 11**")
 brand_str = st.selectbox("Select Car Brand", sorted(data["brand"].unique()))
 
@@ -49,7 +47,7 @@ brand_val = safe_convert(brand_str)
 model_val = safe_convert(model_str)
 battery_val = safe_convert(battery_str)
 
-# --------------------------- TEXT INPUTS ---------------------------
+# TEXT INPUTS
 st.markdown("**Top Speed (km/h) — 150 to 300**")
 top_speed = st.text_input("Enter Top Speed (km/h)")
 
@@ -68,7 +66,7 @@ accel = st.text_input("Enter Acceleration 0–100 (s)")
 st.markdown("**Fast Charging Power (kW DC) — 50 to 120**")
 fast_charge = st.text_input("Enter Fast Charging Power (kW DC)")
 
-# --------------------------- PREDICTION ---------------------------
+#  PREDICTION 
 if st.button("Predict"):
     try:
         df = pd.DataFrame([[
@@ -86,7 +84,7 @@ if st.button("Predict"):
 
         st.success(f"Predicted EV Range: {pred[0]:.2f} km")
 
-        # -------------- GRAPHS IN TABS --------------
+        # GRAPHS IN TABS
         tab1, tab2, tab3, tab4, = st.tabs(
             ["📊 Bar Graph", "🥧 Pie Chart", "📈 Line Chart", "🔵 Scatter Plot"]
         )
@@ -126,6 +124,7 @@ if st.button("Predict"):
 
     except Exception as e:
         st.error(f"⚠ Error: {e}")
+
 
 
 
