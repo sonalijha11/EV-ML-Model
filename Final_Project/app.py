@@ -102,7 +102,7 @@ with st.sidebar:
       st.switch_page("final_project/pages/2_about.py")
 
     if st.button("🤖  Chatbot", key="p3", help="Ask EV Questions", use_container_width=True):
-    st.switch_page("Final_Project/pages/3_chatbot.py")
+    st.switch_page("final_project/pages/3_chatbot.py")
 
 
     st.markdown("<div class='footer'>Created by Sonali Jha 💙</div>", unsafe_allow_html=True)
@@ -114,6 +114,7 @@ st.markdown("""
     <div class='sub-text'>Choose an option from the left panel</div>
 </div>
 """, unsafe_allow_html=True)
+
 
 
 
