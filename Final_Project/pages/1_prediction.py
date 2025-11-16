@@ -87,8 +87,8 @@ if st.button("Predict"):
         st.success(f"Predicted EV Range: {pred[0]:.2f} km")
 
         # -------------- GRAPHS IN TABS --------------
-        tab1, tab2, tab3, tab4, tab5 = st.tabs(
-            ["📊 Bar Graph", "🥧 Pie Chart", "📈 Line Chart", "🔵 Scatter Plot", "🔋 Battery Diagram"]
+        tab1, tab2, tab3, tab4, = st.tabs(
+            ["📊 Bar Graph", "🥧 Pie Chart", "📈 Line Chart", "🔵 Scatter Plot"]
         )
 
         with tab1:
@@ -126,6 +126,7 @@ if st.button("Predict"):
 
     except Exception as e:
         st.error(f"⚠ Error: {e}")
+
 
 
 
