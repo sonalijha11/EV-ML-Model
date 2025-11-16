@@ -92,7 +92,7 @@ with st.sidebar:
     st.markdown("<div class='sidebar-title'>⚡ EV Range Predictor</div>", unsafe_allow_html=True)
 
     st.markdown("<div class='logo-box'>", unsafe_allow_html=True)
-    st.image("ev_logo.png", width=160)
+
     st.markdown("</div>", unsafe_allow_html=True)
 
     if st.button("🚗  Prediction Page", key="p1", help="Open EV Prediction", use_container_width=True):
@@ -111,3 +111,4 @@ st.markdown("""
     <div class='sub-text'>Choose an option from the left panel</div>
 </div>
 """, unsafe_allow_html=True)
+
