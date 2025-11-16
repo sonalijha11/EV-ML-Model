@@ -1,75 +1,128 @@
 import streamlit as st
+import time
 
-st.set_page_config(page_title="EV Chatbot", page_icon="🤖")
-
+st.set_page_config(page_title="EV Chatbot", layout="wide")
 
 st.markdown("""
 <style>
-.chat-box {
-    background-color: #0F172A;
+
+body {
+    background-color: #071e3d !important;
+}
+
+.chat-container {
+    width: 80%;
+    margin: auto;
+    margin-top: 30px;
     padding: 20px;
+    background: #0c2f5c;
+    border-radius: 12px;
+    height: 520px;
+    overflow-y: auto;
+}
+
+.msg {
+    padding: 15px;
+    margin-bottom: 15px;
     border-radius: 10px;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+/* User message */
+.user {
+    background: #144272;
     color: white;
-    margin-top: 20px;
-    font-size: 17px;
 }
-.user-msg {
-    background-color: #1E293B;
+
+/* Bot message */
+.bot {
+    background: #205295;
+    color: white;
+}
+
+.icon-box {
+    background: #ffcc00;
     padding: 10px;
-    border-radius: 8px;
-    margin-bottom: 10px;
-    color: #E2E8F0;
+    border-radius: 50%;
+    font-size: 18px;
 }
-.bot-msg {
-    background-color: #334155;
-    padding: 10px;
-    border-radius: 8px;
-    margin-bottom: 10px;
-    color: #F8FAFC;
+
+.icon-bot {
+    background: #00d4ff;
 }
+
+h2 {
+    color: white;
+    text-align: center;
+    margin-top: 15px;
+}
+
 </style>
 """, unsafe_allow_html=True)
 
-def get_bot_response(user_input):
+if "chat" not in st.session_state:
+    st.session_state.chat = []
 
-    user_input = user_input.lower()
+def bot_reply(q):
+    q = q.lower()
 
-    if "ev" in user_input or "electric vehicle" in user_input:
-        return "An Electric Vehicle (EV) is a vehicle powered by electricity stored in batteries."
+    if "battery" in q:
+        return "EV batteries usually last 6–8 years. Range depends on temperature, speed, and load."
+    if "range" in q:
+        return "Most EVs offer 250–450 km range depending on battery size and driving style."
+    if "charge" in q:
+        return "Fast charging takes 30–40 minutes for 80%. Slow AC charging takes 6–8 hours."
+    if "motor" in q:
+        return "EVs mainly use PMSM and induction motors for efficiency."
+    if "hello" in q or "hi" in q:
+        return "Hello! 👋 How can I assist you with EV knowledge?"
+    
+    return "Great question! I'm your EV assistant, always learning more! 😊"
 
-    elif "battery" in user_input:
-        return "EVs use lithium-ion batteries. Higher battery capacity generally gives a longer driving range."
 
-    elif "range" in user_input:
-        return "EV range refers to how many kilometers the vehicle can travel on a full charge."
+st.markdown("<h2>ChatGPT-like Clone</h2>", unsafe_allow_html=True)
 
-    elif "charging" in user_input:
-        return "EVs support slow AC charging (home) and fast DC charging (public stations)."
+st.markdown("<div class='chat-container'>", unsafe_allow_html=True)
 
-    elif "motor" in user_input:
-        return "The electric motor converts electrical energy into mechanical energy to drive the wheels."
-
-    elif "hello" in user_input or "hi" in user_input:
-        return "Hello! I am your EV Assistant. How can I help you today? 😊"
-
-    elif "bye" in user_input:
-        return "Goodbye! Have a great day! ⚡"
-
+for sender, message in st.session_state.chat:
+    if sender == "user":
+        st.markdown(
+            f"""
+            <div class='msg user'>
+                <div class='icon-box'>🙋</div>
+                <div>{message}</div>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
     else:
-        return "I'm not sure about that. Try asking about EVs, batteries, range, charging, or motors."
+        st.markdown(
+            f"""
+            <div class='msg bot'>
+                <div class='icon-box icon-bot'>🤖</div>
+                <div>{message}</div>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
+
+st.markdown("</div>", unsafe_allow_html=True)
 
 
-st.title("🤖 EV Chatbot Assistant")
-st.write("### Ask anything related to Electric Vehicles!")
+user_input = st.text_input("Message the EV Bot:", "")
 
-user_query = st.text_input("Your Question:", placeholder="Type here...")
 
-if st.button("Ask"):
-    if user_query.strip() != "":
-        bot_reply = get_bot_response(user_query)
+if user_input:
+  
+    st.session_state.chat.append(("user", user_input))
 
-        st.markdown("<div class='chat-box'>", unsafe_allow_html=True)
-        st.markdown(f"<div class='user-msg'><b>You:</b> {user_query}</div>", unsafe_allow_html=True)
-        st.markdown(f"<div class='bot-msg'><b>Bot:</b> {bot_reply}</div>", unsafe_allow_html=True)
-        st.markdown("</div>", unsafe_allow_html=True)
+   
+    with st.spinner("Bot is typing..."):
+        time.sleep(1)
 
+    # Add bot response
+    st.session_state.chat.append(("bot", bot_reply(user_input)))
+
+    st.rerun()
