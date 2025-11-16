@@ -114,9 +114,7 @@ if st.button("Predict"):
             )
             st.plotly_chart(fig4)
 
-        with tab5:
-            st.subheader("EV Battery Diagram")
-            st.image("battery_diagram.png", caption="Battery Diagram", use_column_width=True)
 
     except Exception as e:
         st.error(f"⚠ Error: {e}")
+
