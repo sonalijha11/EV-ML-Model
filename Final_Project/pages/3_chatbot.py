@@ -36,32 +36,32 @@ def get_bot_response(user_input):
     user_input = user_input.lower()
 
     if "ev" in user_input or "electric vehicle" in user_input:
-        return "EV (Electric Vehicle) ek environmentally friendly vehicle hai jo battery mein stored electricity se chalta hai!"
+        return "An Electric Vehicle (EV) is a vehicle powered by electricity stored in batteries."
 
     elif "battery" in user_input:
-        return "An EV battery lithium-ion hoti hai. Zyada battery capacity = longer driving range."
+        return "EVs use lithium-ion batteries. Higher battery capacity generally gives a longer driving range."
 
     elif "range" in user_input:
-        return "EV range ka matlab hai ek full charge par kitne kilometers gaadi chal sakti hai."
+        return "EV range refers to how many kilometers the vehicle can travel on a full charge."
 
     elif "charging" in user_input:
-        return "EVs generally slow AC charging (home) aur fast DC charging (public stations) support karte hain."
+        return "EVs support slow AC charging (home) and fast DC charging (public stations)."
 
     elif "motor" in user_input:
-        return "EV motor electric energy ko mechanical energy me convert karke wheels ko drive karti hai."
+        return "The electric motor converts electrical energy into mechanical energy to drive the wheels."
 
     elif "hello" in user_input or "hi" in user_input:
-        return "Hello! Kaise ho? I am your EV Assistant 🤖"
+        return "Hello! I am your EV Assistant. How can I help you today? 😊"
 
     elif "bye" in user_input:
-        return "Bye! Drive safe and keep learning about EVs ⚡"
+        return "Goodbye! Have a great day! ⚡"
 
     else:
-        return "Sorry, mujhe samajh nahi aaya. Try asking about EV, battery, range, charging or motor!"
+        return "I'm not sure about that. Try asking about EVs, batteries, range, charging, or motors."
 
 # ---------- UI ----------
 st.title("🤖 EV Chatbot Assistant")
-st.write("### EV se related kuch bhi poochho!")
+st.write("### Ask anything related to Electric Vehicles!")
 
 user_query = st.text_input("Your Question:", placeholder="Type here...")
 
