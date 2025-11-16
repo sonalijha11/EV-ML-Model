@@ -7,9 +7,19 @@ import plotly.express as px
 st.set_page_config(page_title="EV Range Prediction", layout="centered")
 
 # Load dataset, model, scaler
-data = pd.read_csv("Final_Project/electric_vehicles_spec.csv")
-model = pickle.load(open("model.pkl", "rb"))
-scaler = pickle.load(open("scaler.pkl", "rb"))
+
+import os
+
+BASE_DIR = os.path.dirname(os.path.dirname(__file__))   # go to Final_Project
+csv_path = os.path.join(BASE_DIR, "electric_vehicles_spec.csv")
+data = pd.read_csv(csv_path)
+
+model_path = os.path.join(BASE_DIR, "model.pkl")
+model = pickle.load(open(model_path, "rb"))
+
+scaler_path = os.path.join(BASE_DIR, "scaler.pkl")
+scaler = pickle.load(open(scaler_path, "rb"))
+
 
 st.markdown("<h2 style='text-align:center;'>EV Range Prediction</h2>", unsafe_allow_html=True)
 st.write("### Please input details of your EV:")
@@ -120,4 +130,5 @@ if st.button("Predict"):
 
     except Exception as e:
         st.error(f"⚠ Error: {e}")
+
 
