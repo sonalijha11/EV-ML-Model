@@ -96,10 +96,10 @@ with st.sidebar:
     st.markdown("</div>", unsafe_allow_html=True)
 
     if st.button("🚗  Prediction Page", key="p1", help="Open EV Prediction", use_container_width=True):
-       st.switch_page("Final_Project/pages/1_prediction.py")
+       st.switch_page("final_project/pages/1_prediction.py")
 
     if st.button("ℹ️  About Project", key="p2", help="Learn about EV", use_container_width=True):
-        st.switch_page("Final_Project/pages/2_about.py")
+        st.switch_page("final_project/pages/2_about.py")
 
     st.markdown("<div class='footer'>Created by Sonali Jha 💙</div>", unsafe_allow_html=True)
 
@@ -111,5 +111,6 @@ st.markdown("""
     <div class='sub-text'>Choose an option from the left panel</div>
 </div>
 """, unsafe_allow_html=True)
+
 
 
