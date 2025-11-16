@@ -2,7 +2,7 @@ import streamlit as st
 
 st.set_page_config(page_title="EV App", layout="wide")
 
-# ---------- CUSTOM CSS (Premium Animated UI) ----------
+
 st.markdown("""
 <style>
 
@@ -86,7 +86,6 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 
-# ----------- SIDEBAR CONTENT -----------
 with st.sidebar:
 
     st.markdown("<div class='sidebar-title'>⚡ EV Range Predictor</div>", unsafe_allow_html=True)
@@ -109,13 +108,13 @@ with st.sidebar:
     st.markdown("<div class='footer'>Created by Sonali Jha 💙</div>", unsafe_allow_html=True)
 
 
-# -------- PAGE BODY (ANIMATED BOX) --------
 st.markdown("""
 <div class='center-box'>
     <div class='glow-text'>Welcome! to the EV Range App</div>
     <div class='sub-text'>Choose an option from the left panel</div>
 </div>
 """, unsafe_allow_html=True)
+
 
 
 
