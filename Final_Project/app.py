@@ -109,10 +109,11 @@ with st.sidebar:
 # -------- PAGE BODY (ANIMATED BOX) --------
 st.markdown("""
 <div class='center-box'>
-    <div class='glow-text'>Welcome!, To the EV Range App</div>
+    <div class='glow-text'>Welcome! to the EV Range App</div>
     <div class='sub-text'>Choose an option from the left panel</div>
 </div>
 """, unsafe_allow_html=True)
+
 
 
 
