@@ -7,7 +7,7 @@ import plotly.express as px
 st.set_page_config(page_title="EV Range Prediction", layout="centered")
 
 # Load dataset, model, scaler
-data = pd.read_csv("electric_vehicles_spec.csv")
+data = pd.read_csv("Final_Project/electric_vehicles_spec.csv")
 model = pickle.load(open("model.pkl", "rb"))
 scaler = pickle.load(open("scaler.pkl", "rb"))
 
@@ -120,3 +120,4 @@ if st.button("Predict"):
 
     except Exception as e:
         st.error(f"⚠ Error: {e}")
+
