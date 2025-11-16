@@ -2,7 +2,7 @@ import streamlit as st
 
 st.set_page_config(page_title="EV Chatbot", page_icon="🤖")
 
-# ---------- Custom CSS -------
+
 st.markdown("""
 <style>
 .chat-box {
@@ -30,7 +30,6 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-# ---------- RULE-BASED RESPONSES ----------
 def get_bot_response(user_input):
 
     user_input = user_input.lower()
@@ -59,7 +58,7 @@ def get_bot_response(user_input):
     else:
         return "I'm not sure about that. Try asking about EVs, batteries, range, charging, or motors."
 
-# ---------- UI ----------
+
 st.title("🤖 EV Chatbot Assistant")
 st.write("### Ask anything related to Electric Vehicles!")
 
@@ -73,3 +72,4 @@ if st.button("Ask"):
         st.markdown(f"<div class='user-msg'><b>You:</b> {user_query}</div>", unsafe_allow_html=True)
         st.markdown(f"<div class='bot-msg'><b>Bot:</b> {bot_reply}</div>", unsafe_allow_html=True)
         st.markdown("</div>", unsafe_allow_html=True)
+
